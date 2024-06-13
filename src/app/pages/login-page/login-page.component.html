@@ -1,13 +1,17 @@
-<form action="login-form">
+<form 
+  class="login-form"
+  (ngSubmit)="onSubmit()" 
+  [formGroup]="form"
+>
   <h1 class="h1 mb64">Вход</h1>
-  <label class="tt-control-label mb16" for="">
+  <label class="tt-control-label mb16" for="username">
     Telegram username:
-    <input class="tt-input" type="text" placeholder="Введите логин">
+    <input autocomplete="off" formControlName="username" id="username" class="tt-input" type="text" placeholder="Введите логин">
   </label>
-  <label class="tt-control-label mb32" for="">
+  <label class="tt-control-label mb32" for="password">
     Password:
-    <input class="tt-input" type="text" placeholder="Введите логин">
+    <input autocomplete="off" formControlName="password" id="password" class="tt-input" type="text" placeholder="Введите пароль">
   </label>
-  <button class="btn btn-shadow">Войти</button>
+  <button class="btn btn-shadow" type="submit">Войти</button>
 </form>
 <img src="/assets/svg/logo-big.svg" alt="logo">
