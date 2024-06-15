@@ -4,17 +4,13 @@
   <ul class="main-menu-list">
     <li *ngFor="let menuItem of menuItems">
       <button class="menu-item">
-        <!-- <svg id="home" width="14" height="12" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M5.65625 11.3438H2.34375V6H0.34375L7 0L13.6562 6H11.6562V11.3438H8.34375V7.34375H5.65625V11.3438Z" fill="currentColor"/>
-        </svg> -->
-        <app-svg-icon [icon]="menuItem.icon"></app-svg-icon>
+        <svg [icon]="menuItem.icon"></svg>
         <span>{{menuItem.label}}</span>
       </button>
     </li>
   </ul>
 </nav>
 <p class="medium-text mb20">Подписчики</p>
-<!-- <pre>{{ subscribers$ | async | json}}</pre> -->
 @for (profile of subscribers$ | async; track profile.id) {
   <app-subscriber-card [profile]="profile"></app-subscriber-card>
 }
@@ -22,5 +18,5 @@
 
 <div class="mt20 to-subscribers">
   <a [routerLink]="['/subscribers']" class="to-subscribers-link medium-text">Все подписчики</a>
-  <app-svg-icon icon="arrow" class="to-subscribers-icon"></app-svg-icon>
+  <svg icon="arrow" class="to-subscribers-icon"></svg>
 </div>
