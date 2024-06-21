@@ -7,7 +7,7 @@
   --primary-color: #AE7AFF;
   --shadow-color: #5F646D;
   --dark-hover-color: #161616;
-
+  --light-transparent-color: #FFFFFFBF;
 }
 
 *,
@@ -19,6 +19,7 @@
 }
 
 body {
+  height: 100dvh;
   font-family: 'JetBrains Mono', sans-serif;
   background: var(--dark-color);
   color: var(--light-color);
@@ -28,7 +29,7 @@ body {
 }
 
 .skill-tag {
-  padding: 0 8px;
+  padding: 4px 8px;
   border-radius: 4px;
   border: 1px solid var(--light-color);
   display: inline;
@@ -68,15 +69,22 @@ body {
     }
 }
 
-.h6 {
-  font-size: 18px;
-  line-height: 24px;
-  font-weight: 800;
-}
-
 .h1 {
   font-size: 48px;
   line-height: 56px;
+  font-weight: 800;
+}
+
+.h4 {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 32px;
+}
+
+.h6 {
+  font-size: 18px;
+  line-height: 24px;
   font-weight: 800;
 }
 
@@ -91,6 +99,13 @@ body {
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
+}
+
+.regular {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  font-style: normal;
 }
 
 .tt-control-label {
@@ -113,4 +128,40 @@ body {
   font-size: 16px;
   line-height: 20px;
   color: var(--light-color);
+}
+
+
+.tt-form-label {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tt-form-label__text {
+  font-style: normal;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  color: var(--light-transparent-color);
+}
+
+.tt-form-input {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  font-style: normal;
+  color: var(--light-color);
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--light-color);
+  height: 32px;
+
+  &:focus-visible {
+    outline: 1px solid var(--primary-color);
+  }
+}
+
+.tt-textarea {
+  height: 84px;
+  resize: none;
 }
