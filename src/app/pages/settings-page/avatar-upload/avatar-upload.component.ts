@@ -1,12 +1,35 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
+import { SvgIconComponent } from '../../../common-ui/svg-icon/svg-icon.component';
+import { DndDirective } from '../../../common-ui/directives/dnd.directive';
 
 @Component({
   selector: 'app-avatar-upload',
   standalone: true,
-  imports: [],
+  imports: [SvgIconComponent, DndDirective],
   templateUrl: './avatar-upload.component.html',
   styleUrl: './avatar-upload.component.scss'
 })
 export class AvatarUploadComponent {
+  prewiev = signal<string>('/assets/images/img.png');
 
+  avatar: File | null = null;
+
+  fileBrowserHandler(event: Event) {
+    const file = (event.target as HTMLInputElement)?.files?.[0];
+    this.processFile(file);
+  }
+
+  onFileDroped(file: File) {
+    this.processFile(file);
+  }
+
+  processFile(file: File | null | undefined) {
+    if(!file || !file.type.match('image')) return;
+    const reader = new FileReader();
+    reader.onload = event => {
+      this.prewiev.set(event.target?.result?.toString() ?? '')
+    };
+    reader.readAsDataURL(file);
+    this.avatar = file;
+  }
 }

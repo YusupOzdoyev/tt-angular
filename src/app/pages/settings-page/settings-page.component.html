@@ -1,5 +1,4 @@
-<app-profile-header
-></app-profile-header>
+<app-profile-header></app-profile-header>
 
 <form [formGroup]="form" class="profile-form__wrapper">
   <div class="profile-form">
@@ -18,8 +17,12 @@
       <input type="text" class="tt-form-input" formControlName="username">
     </label>
     <label class="tt-form-label">
-      <span class="tt-form-label__text">Описание</span>
+      <span class="tt-form-label__text">О себе</span>
       <textarea class="tt-form-input tt-textarea" rows="4" formControlName="description"></textarea>
+    </label>
+    <label class="tt-form-label">
+      <span class="tt-form-label__text">Аватар</span>
+      <app-avatar-upload></app-avatar-upload>
     </label>
     <label class="tt-form-label">
       <span class="tt-form-label__text">Навыки</span>
