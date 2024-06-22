@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { ProfileService } from '../../../data/services/profile.service';
 import { debounceTime, startWith, switchMap } from 'rxjs';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-profile-filter',
@@ -26,6 +27,7 @@ export class ProfileFilterComponent {
       switchMap(formValue => {
         return this.profileService.filterProfiles(formValue);
       }),
+      takeUntilDestroyed(),
     ).subscribe();
   };
 };
