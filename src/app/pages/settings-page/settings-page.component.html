@@ -2,6 +2,7 @@
 
 <form [formGroup]="form" class="profile-form__wrapper">
   <div class="profile-form">
+
     <div class="two-columns">
       <label class="tt-form-label">
         <span class="tt-form-label__text">Имя</span>
@@ -12,6 +13,7 @@
         <input type="text" class="tt-form-input" formControlName="lastName">
       </label>
     </div>
+
     <label class="tt-form-label">
       <span class="tt-form-label__text">Телеграмм</span>
       <input type="text" class="tt-form-input" formControlName="username">
@@ -29,6 +31,7 @@
       <input type="text" class="tt-form-input" formControlName="stack">
     </label>
   </div>
+  
   <div>
     <div>
       <button class="btn" (click)="onSave()">Сохранить</button>
